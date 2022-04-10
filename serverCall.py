@@ -1,9 +1,8 @@
 """
-Explicacion del servidor modbus
+Modbus es el protocolo de comunicaciones más extendido en la automatización industrial y el medio más común para conectar dispositivos electrónicos automatizados. En este taller lo vamos a utilizar para recopilar la información proveniente de un sensor de temperatura, humedad y CO2. ¿Tienes curiosidad de porqué hemos usado este protocolo? Acércate a preguntar.
 
 Servidor que escucha los mensajes provenientes del PLC y los procesa.
-
-Meter pequeña explicación de Modbus,de la diferencia entre registros y coils
+Aquí te presentamos el código base de un servidor asíncrono de Modbus.
 
 
 Enlaces de ayuda:
@@ -20,7 +19,7 @@ import sendData
 
 
 """
-Explicacion del callback. Se activa al recibir
+En este método creamos el método que se va a activar cada vez que recibamos un dato
 """
 class CallbackDataBlock(ModbusSparseDataBlock):
 
@@ -37,9 +36,7 @@ class CallbackDataBlock(ModbusSparseDataBlock):
 
 
 def run_callback_server():
-    """
-     Inicializa el almacenamiento de los datos. Ampliar explicacion
-    """
+
     queue = Queue()
     
     block = CallbackDataBlock()

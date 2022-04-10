@@ -1,7 +1,7 @@
 from pymodbus.client.sync import ModbusTcpClient as ModbusClient
 
 """
-Explicar que hace el papel del PLC
+Aquí te presentamos un ejemplo de cliente Modbus para que puedas probar el servidor
 """
 client = ModbusClient('localhost', port=5000)
 client.connect()

@@ -1,7 +1,9 @@
 
 
 """
-Esta es la dirección base de la api donde vamos a mandar la información para almacenarla mediante peticiones http
+Para almacenar la información obtenida de los sensores hemos decidido utilizar una base de datos alojada en heroku. Para almacenar la información hemos creado una api que nos permite enviar los datos que deben ser guardados. Para esta comunicación utilizamos el protocolo http. Cada dato que recopilamos tiene su propio endPoint en la API.  Los últimos valores almacenados en la base  de datos se pueden observar en la página web: https://workshopetsinf.herokuapp.com/
+
+
 """
 API_URL = "https://workshopetsinf.herokuapp.com/api/"
 
@@ -52,7 +54,11 @@ switch = {
         15: airQuality,
     }
 
+
+"""
+En Modbus la información se guarda en direcciones de memoria. Nosotros hemos decidido relacionar cada registro con una variable, este método permite decodificar el dato recibido a que variable hace referencia.
+"""
 def decode(address, value):
-    print(f'Addres: {address}, Value: {value}')
+
     return switch[address](value[0])
 
